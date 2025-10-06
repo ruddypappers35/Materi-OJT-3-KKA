@@ -47,7 +47,6 @@ const Title: React.FC<{ children: React.ReactNode }> = ({ children }) => (
     <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-4 leading-tight">{children}</h1>
 );
 
-// FIX: Added className prop to Subtitle component to allow for custom styling.
 const Subtitle: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
     <h2 className={`text-2xl md:text-3xl font-semibold text-indigo-600 mb-6 ${className}`}>{children}</h2>
 );
@@ -70,7 +69,7 @@ const Card: React.FC<{ children: React.ReactNode; className?: string, icon?: Rea
 );
 
 export const SLIDES: Slide[] = [
-  { id: 1, content: <SlideWrapper>
+  { id: 1, title: 'Halaman Judul', content: <SlideWrapper>
       <div className="w-28 h-28 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg mb-6">
         <BrainCircuit size={64} className="text-white" />
       </div>
@@ -82,14 +81,14 @@ export const SLIDES: Slide[] = [
       </div>
     </SlideWrapper>
   },
-  { id: 2, content: <SlideWrapper>
+  { id: 2, title: 'Sapaan Awal', content: <SlideWrapper>
       <Smile size={80} className="text-yellow-500 mb-6" />
       <Subtitle>Bagaimana kabarmu hari ini?</Subtitle>
       <p className="text-6xl my-6">👋</p>
       <Paragraph className="text-indigo-600 !font-semibold">Selamat datang di pembelajaran yang menarik!</Paragraph>
     </SlideWrapper>
   },
-  { id: 3, content: <SlideWrapper>
+  { id: 3, title: 'Motivasi Awal', content: <SlideWrapper>
       <MessageCircle size={80} className="text-blue-500 mb-6" />
       <Subtitle>Motivasi Awal</Subtitle>
       <div className="bg-amber-50 border border-amber-200 p-4 sm:p-6 rounded-xl max-w-3xl italic">
@@ -102,8 +101,8 @@ export const SLIDES: Slide[] = [
       </div>
     </SlideWrapper>
   },
-  { id: 4, content: <ThumbDanceChallenge /> },
-  { id: 5, content: <SlideWrapper>
+  { id: 4, title: 'Ice Breaking: Thumb Dance', content: <ThumbDanceChallenge /> },
+  { id: 5, title: 'Apersepsi: Chatbot', content: <SlideWrapper>
       <MessageSquare size={56} className="text-purple-500 mb-4" />
       <Subtitle className="!mb-3 sm:!mb-4">Apersepsi</Subtitle>
       <HighlightBox className="bg-gradient-to-r from-rose-400 to-orange-400 !my-2 sm:!my-3 !p-3 !text-base sm:!text-lg">
@@ -118,7 +117,7 @@ export const SLIDES: Slide[] = [
       <Paragraph className="mt-2 sm:mt-3 !text-base">Chatbot memang cepat, tapi kadang jawabannya terasa kaku. Hari ini kita akan belajar kapan AI lebih baik, dan kapan manusia tetap unggul.</Paragraph>
     </SlideWrapper>
   },
-  { id: 6, content: <SlideWrapper>
+  { id: 6, title: 'Tujuan Pembelajaran', content: <SlideWrapper>
       <Target size={80} className="text-green-600 mb-6" />
       <Subtitle>Tujuan Pembelajaran</Subtitle>
       <Paragraph className="mb-6">Setelah pembelajaran ini, siswa dapat:</Paragraph>
@@ -129,7 +128,7 @@ export const SLIDES: Slide[] = [
       </ul>
     </SlideWrapper>
   },
-  { id: 7, content: <SlideWrapper>
+  { id: 7, title: 'Agenda Pembelajaran', content: <SlideWrapper>
       <Calendar size={80} className="text-cyan-500 mb-6" />
       <Subtitle>Agenda Pembelajaran</Subtitle>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full max-w-4xl mt-4">
@@ -139,7 +138,7 @@ export const SLIDES: Slide[] = [
       </div>
     </SlideWrapper>
   },
-  { id: 8, content: <SlideWrapper>
+  { id: 8, title: 'Pertanyaan Pemantik', content: <SlideWrapper>
       <Lightbulb size={80} className="text-yellow-400 mb-6" />
       <Subtitle>Pertanyaan Pemantik</Subtitle>
       <HighlightBox className="bg-gradient-to-r from-rose-400 to-orange-400">
@@ -154,7 +153,7 @@ export const SLIDES: Slide[] = [
       <Paragraph className="text-slate-500 mt-4">Mari kita pikirkan bersama-sama!</Paragraph>
     </SlideWrapper>
   },
-   { id: 9, content: <SlideWrapper>
+   { id: 9, title: 'Orientasi Permasalahan', content: <SlideWrapper>
       <BookOpen size={56} className="text-amber-600 mb-2" />
       <Subtitle className="!mb-2 sm:!mb-4">Orientasi Permasalahan</Subtitle>
       <h3 className="text-lg sm:text-xl font-semibold text-slate-700 mb-2 sm:mb-3">Kisah Siti dan Chatbot Belanja Online</h3>
@@ -177,8 +176,8 @@ export const SLIDES: Slide[] = [
       </HighlightBox>
     </SlideWrapper>
   },
-  { id: 10, content: <ChatbotSimulation /> },
-  { id: 11, content: <SlideWrapper>
+  { id: 10, title: 'Simulasi Chatbot', content: <ChatbotSimulation /> },
+  { id: 11, title: 'Apa itu AI?', content: <SlideWrapper>
       <Bot size={80} className="text-indigo-600 mb-6" />
       <Subtitle>Apa Itu Kecerdasan Artifisial (AI)?</Subtitle>
       <Paragraph className="mb-6">
@@ -198,7 +197,7 @@ export const SLIDES: Slide[] = [
        </div>
     </SlideWrapper>
   },
-  { id: 12, content: <SlideWrapper>
+  { id: 12, title: 'AI dalam Keseharian', content: <SlideWrapper>
       <MonitorSpeaker size={80} className="text-teal-500 mb-6" />
       <Subtitle>AI dalam Komunikasi Sehari-hari</Subtitle>
        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl mt-2">
@@ -212,7 +211,7 @@ export const SLIDES: Slide[] = [
       </HighlightBox>
     </SlideWrapper>
   },
-  { id: 13, content: <SlideWrapper>
+  { id: 13, title: 'Kelebihan Komunikasi AI', content: <SlideWrapper>
       <CheckCircle size={80} className="text-green-500 mb-6" />
       <Subtitle>Kelebihan AI dalam Komunikasi</Subtitle>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-5xl mt-2">
@@ -223,7 +222,7 @@ export const SLIDES: Slide[] = [
       </div>
     </SlideWrapper>
   },
-  { id: 14, content: <SlideWrapper>
+  { id: 14, title: 'Keterbatasan Komunikasi AI', content: <SlideWrapper>
       <XCircle size={80} className="text-red-500 mb-6" />
       <Subtitle>Keterbatasan AI dalam Komunikasi</Subtitle>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-5xl mt-2">
@@ -234,7 +233,7 @@ export const SLIDES: Slide[] = [
       </div>
     </SlideWrapper>
   },
-  { id: 15, content: <SlideWrapper>
+  { id: 15, title: 'Manusia vs. AI', content: <SlideWrapper>
       <div className="flex gap-4 items-center mb-4 sm:mb-6"><UserCheck size={52} className="text-green-500" /> <span className="text-3xl sm:text-4xl font-bold">vs</span> <Cpu size={52} className="text-blue-500" /></div>
       <Subtitle className="!mb-4">Manusia vs AI dalam Komunikasi</Subtitle>
       <div className="w-full max-w-3xl px-2 sm:px-0">
@@ -275,7 +274,7 @@ export const SLIDES: Slide[] = [
       </HighlightBox>
     </SlideWrapper>
   },
-  { id: 16, content: <SlideWrapper>
+  { id: 16, title: 'Visual Alur Komunikasi', content: <SlideWrapper>
       <Clapperboard size={80} className="text-purple-500 mb-6" />
       <Subtitle>Contoh Visual</Subtitle>
       <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 my-6">
@@ -288,7 +287,7 @@ export const SLIDES: Slide[] = [
       <Paragraph className="text-indigo-600 !font-semibold mt-4">AI menjadi penghubung dalam komunikasi modern.</Paragraph>
     </SlideWrapper>
   },
-  { id: 17, content: <SlideWrapper>
+  { id: 17, title: 'Diskusi Kelompok', content: <SlideWrapper>
       <Users size={80} className="text-orange-500 mb-6" />
       <Subtitle>Ayo Diskusikan dengan Kelompokmu!</Subtitle>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl mt-4">
@@ -298,7 +297,7 @@ export const SLIDES: Slide[] = [
       </div>
     </SlideWrapper>
   },
-  { id: 18, content: <SlideWrapper>
+  { id: 18, title: 'Instruksi LKPD', content: <SlideWrapper>
       <ClipboardList size={80} className="text-sky-600 mb-6" />
       <Subtitle>Bacalah Instruksi pada LKPD!</Subtitle>
       <div className="w-full max-w-xl text-left space-y-4">
@@ -308,7 +307,7 @@ export const SLIDES: Slide[] = [
       </div>
     </SlideWrapper>
   },
-  { id: 19, content: <SlideWrapper>
+  { id: 19, title: 'Sesi Presentasi', content: <SlideWrapper>
       <Mic size={80} className="text-rose-500 mb-6" />
       <Subtitle>Ayo Presentasikan Hasil Kerjamu!</Subtitle>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl mt-2">
@@ -319,7 +318,7 @@ export const SLIDES: Slide[] = [
       </div>
     </SlideWrapper>
   },
-  { id: 20, content: <SlideWrapper>
+  { id: 20, title: 'Penguatan: Peran AI', content: <SlideWrapper>
       <Sparkles size={80} className="text-amber-500 mb-6" />
       <Subtitle>Penguatan Materi: Peran AI</Subtitle>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-5xl mt-2">
@@ -330,7 +329,7 @@ export const SLIDES: Slide[] = [
       </div>
     </SlideWrapper>
   },
-  { id: 21, content: <SlideWrapper>
+  { id: 21, title: 'Penguatan: Jenis AI', content: <SlideWrapper>
       <Cpu size={80} className="text-slate-600 mb-6" />
       <Subtitle>Penguatan Materi: Jenis AI</Subtitle>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-5xl mt-2">
@@ -341,7 +340,7 @@ export const SLIDES: Slide[] = [
       </div>
     </SlideWrapper>
   },
-   { id: 22, content: <SlideWrapper>
+   { id: 22, title: 'Refleksi Pembelajaran', content: <SlideWrapper>
       <HelpCircle size={80} className="text-purple-500 mb-6" />
       <Subtitle>Refleksi</Subtitle>
        <div className="w-full max-w-2xl text-left space-y-4">
@@ -351,6 +350,6 @@ export const SLIDES: Slide[] = [
       </div>
     </SlideWrapper>
   },
-  { id: 23, content: <Quiz /> },
-  { id: 24, content: <ThankYouSlide /> },
+  { id: 23, title: 'Kuis Interaktif', content: <Quiz /> },
+  { id: 24, title: 'Terima Kasih', content: <ThankYouSlide /> },
 ];
