@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { SLIDES } from './constants';
 import Navigation from './components/Navigation';
+import Timer from './components/Timer';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const slideVariants = {
@@ -24,6 +24,21 @@ const slideVariants = {
 const App: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(20 * 60); // 20 minutes in seconds
+
+  useEffect(() => {
+    // Stop the interval if time is up
+    if (timeLeft <= 0) {
+      return;
+    }
+
+    const timerId = setInterval(() => {
+      setTimeLeft(prevTime => prevTime - 1);
+    }, 1000);
+
+    // Cleanup interval on component unmount or when time runs out
+    return () => clearInterval(timerId);
+  }, [timeLeft]);
 
   const paginate = (newDirection: number) => {
     setDirection(newDirection);
@@ -61,6 +76,7 @@ const App: React.FC = () => {
       <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[95vh] md:h-auto md:aspect-[16/9] md:max-h-[90vh]">
         {/* Slide Content Area */}
         <div className="flex-grow relative overflow-hidden">
+          <Timer timeLeft={timeLeft} />
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
               key={currentSlide}
