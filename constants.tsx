@@ -1,3 +1,4 @@
+
 import React from 'react';
 import type { Slide } from './types';
 import ChatbotSimulation from './components/ChatbotSimulation';
@@ -37,6 +38,7 @@ import {
   MonitorSpeaker,
   FileText,
   HelpCircle,
+  ExternalLink,
 } from 'lucide-react';
 
 const SlideWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -305,6 +307,15 @@ export const SLIDES: Slide[] = [
         <div className="flex items-center gap-4 p-3 md:p-4 bg-slate-50 rounded-lg"><div className="flex-shrink-0 w-10 h-10 bg-sky-500 text-white rounded-full flex items-center justify-center font-bold text-lg">2</div><div><h4 className="font-semibold">Diskusi Kelompok</h4><p className="text-sm text-slate-500">Kerjakan bersama</p></div></div>
         <div className="flex items-center gap-4 p-3 md:p-4 bg-slate-50 rounded-lg"><div className="flex-shrink-0 w-10 h-10 bg-sky-500 text-white rounded-full flex items-center justify-center font-bold text-lg">3</div><div><h4 className="font-semibold">Tulis Hasil</h4><p className="text-sm text-slate-500">Catat semua ide</p></div></div>
       </div>
+      <a
+        href="https://lkpd-ojt-3-rudysusanto.vercel.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-8 inline-flex items-center gap-3 px-6 py-3 bg-sky-600 text-white font-bold rounded-full text-lg transition-transform hover:scale-105 hover:bg-sky-700 shadow-lg"
+      >
+        <ExternalLink size={20} />
+        Buka LKPD
+      </a>
     </SlideWrapper>
   },
   { id: 19, title: 'Sesi Presentasi', content: <SlideWrapper>
