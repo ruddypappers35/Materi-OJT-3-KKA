@@ -134,9 +134,9 @@ export const SLIDES: Slide[] = [
       <Calendar size={80} className="text-cyan-500 mb-6" />
       <Subtitle>Agenda Pembelajaran</Subtitle>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full max-w-4xl mt-4">
-        <Card icon={<Bot size={40} className="text-indigo-500"/>}><h3 className="text-lg md:text-xl font-semibold text-slate-700">🔬 Praktik menggunakan AI</h3></Card>
-        <Card icon={<Users size={40} className="text-indigo-500"/>}><h3 className="text-lg md:text-xl font-semibold text-slate-700">👥 Diskusi Kelompok</h3></Card>
-        <Card icon={<Presentation size={40} className="text-indigo-500"/>}><h3 className="text-lg md:text-xl font-semibold text-slate-700">📢 Presentasi</h3></Card>
+        <Card icon={<Bot size={40} className="text-indigo-500"/>}><h3 className="text-lg md:text-xl font-semibold text-slate-700"> Praktik menggunakan AI</h3></Card>
+        <Card icon={<Users size={40} className="text-indigo-500"/>}><h3 className="text-lg md:text-xl font-semibold text-slate-700"> Diskusi Kelompok</h3></Card>
+        <Card icon={<Presentation size={40} className="text-indigo-500"/>}><h3 className="text-lg md:text-xl font-semibold text-slate-700"> Presentasi</h3></Card>
       </div>
     </SlideWrapper>
   },
